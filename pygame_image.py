@@ -18,7 +18,9 @@ def main():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [0, 0])
-        screen.blit(koka, [300, 200])
+        kk=koka.get_rect()##場所取得
+        ba=kk.center =300,200
+        screen.blit(koka, ba)##baのところに描画
         pg.display.update()
         tmr += 1        
         clock.tick(200)
