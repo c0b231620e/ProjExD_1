@@ -7,7 +7,7 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 def main():
     pg.display.set_caption("はじめてのPygame")
-    screen = pg.display.set_mode((800, 600))
+    screen = pg.display.set_mode((1400, 400))
     clock = pg.time.Clock()
     font = pg.font.Font(None, 80)
 
@@ -23,7 +23,7 @@ def main():
         txt = font.render(str(tmr), True, (255, 255, 255))
         screen.fill((50, 50, 50))
         screen.blit(txt, [300, 200])
-        screen.blit(enn, [100, 400])
+        screen.blit(enn, [100, 400])##右座標
         pg.display.update()
         tmr += 1        
         clock.tick(0.1)
