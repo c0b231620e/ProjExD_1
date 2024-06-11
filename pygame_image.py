@@ -13,6 +13,8 @@ def main():
     kk_rct = kk_img.get_rect()  # こうかとんRectの抽出
     kk_rct.center = 300, 200    
     tmr = 0
+    i=0
+    y=0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
@@ -23,17 +25,20 @@ def main():
         screen.blit(bg_img2, [-x+4800, 0])        
 
         key_lst = pg.key.get_pressed()  # 全キーの押下状態を取得
-        kk_rct.move_ip(-1, 0)
+        i=-1
+        y=0
         if key_lst[pg.K_UP]:  # 上矢印キーが押されたら
-            kk_rct.move_ip(0, -1)
+            y-=1
         if key_lst[pg.K_DOWN]:  # 下矢印キーが押されたら
-            kk_rct.move_ip(0, 1)
+            y+=1
         if key_lst[pg.K_LEFT]:  # 左矢印キーが押されたら
-            kk_rct.move_ip(-1, 0)
+            i-=1
         if key_lst[pg.K_RIGHT]:  # 右矢印キーが押されたら
-            kk_rct.move_ip(2, 0)
-        screen.blit(kk_img, kk_rct)  # kk_imgをkk_rctの設定にしたがって貼り付け
+            i+=2
+        kk_rct.move_ip(i, y)
 
+        screen.blit(kk_img, kk_rct)  # kk_imgをkk_rctの設定にしたがって貼り付け
+    
 
         pg.display.update()
         tmr += 1      
